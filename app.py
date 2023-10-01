@@ -38,6 +38,21 @@ user_data = [
 # Implement Logic for the base URL http://localhost:5000/v1/
 @app.route("/v1/", methods=["GET", "POST"])
 def index():
+    """
+    Handle GET and POST requests for the '/v1/' endpoint.
+
+    - GET: Retrieves a list of user data in JSON format.
+    - POST: Adds a new user to the user data list.
+
+    Returns:
+        - If GET: Returns a JSON list of user data with a 200 status code if users exist.
+          Returns a 404 status code with a message if no users are found.
+        - If POST: Adds a new user to the user data list and returns the updated user data
+          in JSON format with a 201 status code if the request data is valid.
+          Returns a 404 status code with an error message if the 'user' or 'prompt' fields
+          in the form data are not strings.
+    """
+        
     # Handle GET requests
     if request.method == "GET":
         # Check if there are users in the user_data list
@@ -76,7 +91,8 @@ def index():
             return "Please provide a string for User or Prompt", 404
 
 
-
+# Entry point of the application
 if __name__ == '__main__':
+    # Start the Flask application in debug mode
     app.run(debug=True)
 
