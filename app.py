@@ -35,8 +35,8 @@ user_data = [
 ]
 
 
-# Implement Logic for the base URL
-@app.route("/", methods=["GET", "POST"])
+# Implement Logic for the base URL http://localhost:5000/v1/
+@app.route("/v1/", methods=["GET", "POST"])
 def index():
     # Handle GET requests
     if request.method == "GET":
