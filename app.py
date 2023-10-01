@@ -40,7 +40,20 @@ def index(user, prompt):
             return "There's no users, for now!", 404
 
     if request.method == "POST":
-        
+        if isinstance(user, str) and isinstance(prompt, str):
+            new_user = user
+            new_prompt = prompt
+            new_user_id = user_data[-1]['user_id']+1
+            new_object = {
+                'user_id': new_user_id,
+                'user_name': new_user,
+                'prompt':new_prompt
+            }
+            user_data.append(new_object)
+            return jsonify(user_data)
+        else:
+            return "Please provide a string for User or Prompt", 404
+
 
 if __name__ == '__main__':
     app.run(debug=True)
