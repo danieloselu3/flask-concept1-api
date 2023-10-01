@@ -32,17 +32,17 @@ user_data = [
 
 
 @app.route("/", methods=["GET", "POST"])
-def index(user, prompt):
+def index():
     if request.method == "GET":
-        if user_data > 0:
+        if len(user_data) > 0:
             return jsonify(user_data)
         else:
             return "There's no users, for now!", 404
 
     if request.method == "POST":
-        if isinstance(user, str) and isinstance(prompt, str):
-            new_user = user
-            new_prompt = prompt
+        if isinstance(request.form['user'], str) and isinstance(request.form['prompt'], str):
+            new_user = request.form['user']
+            new_prompt = request.form['prompt']
             new_user_id = user_data[-1]['user_id']+1
             new_object = {
                 'user_id': new_user_id,
