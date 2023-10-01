@@ -8,6 +8,7 @@ Before running the API, make sure you have the environment running and the requi
 
 ### Setting Up the Environment
 **(Following instructions assume you have python installed in your system)**
+
 Once the repository has been cloned to your local space, cd into the folder,then using your favorite command line, install Virtualenv if you haven't, and create a new virtual environment.
 
 on Gitbash or Terminal, this can be done using the command:
@@ -33,6 +34,7 @@ To run our main Python Script, run the code:
 python app.py
 ```
 This will run the flask app server programmatically in debug mode.
+
 **DISCLAIMER** ***Because we're using a hard coded dataSet, addition of data using POST only persist with request context, this can be corrected by implementing a database.***
 
 ## API Endpoints
